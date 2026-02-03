@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: default
+
+resources:
+  - cronjob.yaml
+  # - secret.yaml  # Uncomment if using plain secrets (not recommended for GitOps)
+
+commonLabels:
+  app.kubernetes.io/name: holston-scraper
+  app.kubernetes.io/component: scraper
+
+images:
+  - name: ghcr.io/smileyhogue/holston-scraper
+    newTag: latest

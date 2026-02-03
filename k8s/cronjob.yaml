@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: holston-scraper
+  namespace: default
+  labels:
+    app: holston-scraper
+spec:
+  schedule: "0 6 * * *"  # eevery day at 6:00 AM EST
+  timeZone: "America/New_York"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            app: holston-scraper
+        spec:
+          containers:
+          - name: scraper
+            image: ghcr.io/smileyhogue/holston-scraper:latest
+            imagePullPolicy: Always
+            envFrom:
+            - secretRef:
+                name: holston-scraper-secrets
+            env:
+            - name: LOG_LEVEL
+              value: "INFO"
+            resources:
+              requests:
+                memory: "128Mi"
+                cpu: "50m"
+              limits:
+                memory: "256Mi"
+                cpu: "200m"
+          restartPolicy: OnFailure
