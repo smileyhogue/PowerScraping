@@ -21,7 +21,7 @@ spec:
         spec:
           containers:
           - name: scraper
-            image: ghcr.io/smileyhogue/holston-scraper:latest
+            image: ghcr.io/smileyhogue/powerscraping:latest
             imagePullPolicy: Always
             envFrom:
             - secretRef:

@@ -12,5 +12,5 @@ commonLabels:
   app.kubernetes.io/component: scraper
 
 images:
-  - name: ghcr.io/smileyhogue/holston-scraper
+  - name: ghcr.io/smileyhogue/powerscraping
     newTag: latest
