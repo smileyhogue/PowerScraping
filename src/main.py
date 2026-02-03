@@ -1,9 +1,9 @@
 import logging
 import sys
 from datetime import datetime, timedelta
-from src.scraper import Scraper
-from src.database import Database
-from src.notifier import Notifier
+from .scraper import Scraper
+from .database import Database
+from .notifier import Notifier
 
 import os
 log_level = os.environ.get('LOG_LEVEL', 'INFO').upper()

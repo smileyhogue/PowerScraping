@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import logging
 from influxdb_client import InfluxDBClient, Point, WriteOptions
 from influxdb_client.client.write_api import SYNCHRONOUS
-from src.config import settings
+from .config import settings
 
 logger = logging.getLogger(__name__)
 

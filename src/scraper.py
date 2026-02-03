@@ -4,7 +4,7 @@ import json
 import re
 from bs4 import BeautifulSoup
 from functools import lru_cache
-from src.config import settings
+from .config import settings
 
 logger = logging.getLogger(__name__)
 
