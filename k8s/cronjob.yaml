@@ -6,7 +6,7 @@ metadata:
   labels:
     app: holston-scraper
 spec:
-  schedule: "0 6 * * *"  # eevery day at 6:00 AM EST
+  schedule: "0 10 * * *"  # eevery day at 6:00 AM EST
   timeZone: "America/New_York"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
